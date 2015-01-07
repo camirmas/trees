@@ -12,10 +12,8 @@ class BinaryTree
       return root
     elsif root.left
       return dfs(value, root.left)
-    elsif root.right
-      return dfs(value, root.right)
     else
-      return
+      return dfs(value, root.right)
     end
   end
 end
