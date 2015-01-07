@@ -12,4 +12,11 @@ class BinaryTree
     return node if node.value == value
     return dfs(value, node.left) || dfs(value, node.right)
   end
+
+  def sum(node=@root)
+    return 0 if !node
+    left_sum = node.value + sum(node.left)
+    right_sum = sum(node.right)
+    return left_sum + right_sum
+  end
 end

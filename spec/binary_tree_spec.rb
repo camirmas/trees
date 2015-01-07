@@ -54,4 +54,41 @@ describe BinaryTree do
       expect(node.value).to eq(10)
     end
   end
+
+  describe "#sum" do
+    it "returns the sum of all values in the tree" do
+      expect(tree.sum).to eq(4)
+    end
+
+    it "returns the sum of all values in the tree" do
+      tree.root.left = Node.new(5)
+
+      expect(tree.sum).to eq(9)
+    end
+
+    it "returns the sum of all values in the tree" do
+      tree.root.left = Node.new(5)
+      tree.root.right = Node.new(6)
+
+      expect(tree.sum).to eq(15)
+    end
+
+    it "returns the sum of all values in the tree" do
+      tree.root.left = Node.new(5)
+      tree.root.right = Node.new(6)
+      tree.root.right.left = Node.new(5)
+
+      expect(tree.sum).to eq(20)
+    end
+
+    it "returns the sum of all values in the tree" do
+      tree.root.left = Node.new(5)
+      tree.root.left.left = Node.new(5)
+      tree.root.right = Node.new(6)
+      tree.root.right.left = Node.new(5)
+      tree.root.right.left = Node.new(5)
+
+      expect(tree.sum).to eq(25)
+    end
+  end
 end
