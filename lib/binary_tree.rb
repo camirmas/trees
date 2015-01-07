@@ -7,13 +7,9 @@ class BinaryTree
     @root = Node.new(value)
   end
 
-  def dfs(value, root=@root)
-    if root.value == value
-      return root
-    elsif root.left
-      return dfs(value, root.left)
-    else
-      return dfs(value, root.right)
-    end
+  def dfs(value, node=@root)
+    return nil if !node
+    return node if node.value == value
+    return dfs(value, node.left) || dfs(value, node.right)
   end
 end
