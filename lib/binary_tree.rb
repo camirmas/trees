@@ -15,8 +15,6 @@ class BinaryTree
 
   def sum(node=@root)
     return 0 if !node
-    left_sum = node.value + sum(node.left)
-    right_sum = sum(node.right)
-    return left_sum + right_sum
+    return node.value + sum(node.left) + sum(node.right)
   end
 end
