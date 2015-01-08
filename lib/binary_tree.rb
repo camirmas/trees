@@ -17,4 +17,19 @@ class BinaryTree
     return 0 if !node
     return node.value + sum(node.left) + sum(node.right)
   end
+
+  def bfs(seeking, nodes=[node=@root])
+    node_children = []
+
+    nodes.each do |node|
+      return node if node.value == seeking
+      nodes << node.left if node.left
+      nodes << node.right if node.right
+    end
+
+    return bfs(seeking, node_children)
+  end
+
+  def binary_tree?(node=@root)
+  end
 end

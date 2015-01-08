@@ -91,4 +91,61 @@ describe BinaryTree do
       expect(tree.sum).to eq(25)
     end
   end
+
+  describe "#bfs" do
+    it "returns the node if it is found in the tree" do
+      tree.root.left = Node.new(5)
+      tree.root.right = Node.new(7)
+      node = tree.bfs(7)
+
+      expect(node.value).to eq(7)
+    end
+
+    it "returns the node if it is found in the tree" do
+      tree.root.left = Node.new(5)
+      tree.root.right = Node.new(7)
+      tree.root.right.right = Node.new(90)
+      node = tree.bfs(90)
+
+      expect(node.value).to eq(90)
+    end
+  end
+
+  xdescribe "#binary_tree?" do
+    it "returns true if a tree is a binary tree" do
+      tree.root.left = Node.new(3)
+      tree.root.right = Node.new(8)
+
+      expect(tree.binary_tree?).to be true
+    end
+
+    it "returns true if a tree is a binary tree" do
+      tree.root.left = Node.new(3)
+      tree.root.right = Node.new(8)
+      tree.root.left.left = Node.new(2)
+      tree.root.left.right = Node.new(5)
+      tree.root.right.left = Node.new(6)
+      tree.root.right.right = Node.new(10)
+
+      expect(tree.binary_tree?).to be true
+    end
+
+    it "returns false if a tree is not a binary tree" do
+      tree.root.left = Node.new(10)
+      tree.root.right = Node.new(20)
+
+      expect(tree.binary_tree?).to be true
+    end
+
+    it "returns false if a tree is not a binary tree" do
+      tree.root.left = Node.new(3)
+      tree.root.right = Node.new(8)
+      tree.root.left.left = Node.new(10)
+      tree.root.left.right = Node.new(5)
+      tree.root.right.left = Node.new(6)
+      tree.root.right.right = Node.new(10)
+
+      expect(tree.binary_tree?).to be true
+    end
+  end
 end
